@@ -7,7 +7,7 @@ int main(int argc, char* argv[]) {
         CORBA::ORB_var orb = CORBA::ORB_init(argc, argv);
 
         // Intialisation du POA 
-        CORBA::ORB_var obj = orb->resolve_initial_references("RootPOA");
+        CORBA::Object_var obj = orb->resolve_initial_references("RootPOA");
         PortableServer::POA_var poa = PortableServer::POA::_narrow(obj);
 
         // Activer le POA Manager 
