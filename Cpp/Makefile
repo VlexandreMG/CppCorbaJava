@@ -1,6 +1,9 @@
 # --- Compilateur & Options --- 
 GPP = g++
-CXXFLAGS = -std=c++17 -Wall -Wextra 
+INCLUDES = -I/usr/include
+LIBS     = -lomniORB4 -lomnithread
+
+CXXFLAGS = -std=c++17 -Wall -Wextra $(INCLUDES)
 
 # --- Cible ---
 SRC_DIR = src
@@ -26,7 +29,7 @@ $(GEN_DIR)/%.o: $(SRC_DIR)/%.cpp
 
 # 3. Édition de liens (Assemblage des .o)
 $(EXEC): $(OBJ_FILES)
-	$(GPP) $(OBJ_FILES) -o $(EXEC)
+	$(GPP) $(OBJ_FILES) -o $(EXEC) $(LIBS)
 
 clean:
 	rm -rf $(GEN_DIR)
