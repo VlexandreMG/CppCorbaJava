@@ -2,10 +2,10 @@
 GPP = g++
 
 # Cible
-SRC_DIR = src  
-CPP_FILES = $(wildcard $(SRC_DIR)/*.cpp) 
+EXEC = mon_serveur 
 
 # Depndances 
-
+SRC_DIR = src  
+CPP_FILES = $(wildcard $(SRC_DIR)/*.cpp) 
 
 # Commandes 
