@@ -1,7 +1,11 @@
 # Compilateur 
+GPP = g++
 
-# Cible 
+# Cible
+SRC_DIR = src  
+CPP_FILES = $(wildcard $(SRC_DIR)/*.cpp) 
 
 # Depndances 
+
 
 # Commandes 
