@@ -3,7 +3,7 @@ GPP = g++
 CXXFLAGS = -std=c++17 -Wall -Wextra 
 
 # --- Cible ---
-SRC_DIR = src 
+SRC_DIR = src
 GEN_DIR = generated
 EXEC = $(GEN_DIR)/mon_serveur 
 
@@ -31,8 +31,8 @@ $(EXEC): $(OBJ_FILES)
 clean:
 	rm -rf $(GEN_DIR)
 
-.PHONY: all clean
-
 debug:
 	@echo "Fichiers sources trouves : '$(CPP_FILES)'"
 	@echo "Fichiers objets générés : '$(OBJ_FILES)'"
+
+.PHONY: all clean
