@@ -22,7 +22,7 @@ $(GEN_DIR):
 
 # -- Execution 
 $(EXEC): $(OBJ_FILES)
-	$(CPP) $(OBJ_FILES) -o $(EXEC)
+	$(GPP) $(OBJ_FILES) -o $(EXEC)
 
 # -- Que all et clean ne sont pas des fichier 
 .PHONY: all, clean
