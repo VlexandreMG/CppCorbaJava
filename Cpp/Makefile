@@ -1,28 +1,38 @@
-# --- Compilateur --- 
+# --- Compilateur & Options --- 
 GPP = g++
-CXX = -std=c++17 -Wall -Wextra 
+CXXFLAGS = -std=c++17 -Wall -Wextra 
 
 # --- Cible ---
-EXEC = $(GEN_DIR)/mon_serveur 
 SRC_DIR = src 
 GEN_DIR = generated
+EXEC = $(GEN_DIR)/mon_serveur 
 
-# --- Depndances --- 
+# --- Dépendances --- 
 CPP_FILES = $(wildcard $(SRC_DIR)/*.cpp) 
 
-# -- Prend chaque fichier .cpp et les transforme en .o et les met dans Generated 
-OBJ_FILES = $(patsubst $(SRC_DIR)/%.cpp , $(GEN_DIR)/%.o , $(CPP_FILES))  	
+# Transforme src/X.cpp en generated/X.o
+OBJ_FILES = $(patsubst $(SRC_DIR)/%.cpp,$(GEN_DIR)/%.o,$(CPP_FILES))    
 
 # --- Commandes --- 
 all: $(GEN_DIR) $(EXEC)
 
-# -- Gen dir 
+# 1. Création du dossier
 $(GEN_DIR): 
 	mkdir -p $(GEN_DIR)
 
-# -- Execution 
+# 2. Compilation des fichiers objets
+$(GEN_DIR)/%.o: $(SRC_DIR)/%.cpp 
+	$(GPP) $(CXXFLAGS) -c $< -o $@
+
+# 3. Édition de liens (Assemblage des .o)
 $(EXEC): $(OBJ_FILES)
 	$(GPP) $(OBJ_FILES) -o $(EXEC)
 
-# -- Que all et clean ne sont pas des fichier 
-.PHONY: all, clean
+clean:
+	rm -rf $(GEN_DIR)
+
+.PHONY: all clean
+
+debug:
+	@echo "Fichiers sources trouves : '$(CPP_FILES)'"
+	@echo "Fichiers objets générés : '$(OBJ_FILES)'"
