@@ -16,7 +16,17 @@ public class ClientMain {
         String iorStr = br.readLine();
         br.close();
 
+            // Convertis la chaîne IOR en objet CORBA génerique 
+        org.omg.CORBA.Object obj = orb.string_to_object(iorStr);
 
+            // Narrowing vers l'interface helper 
+
+            // Appel distant de la fonction dans le serveur C++ 
+
+        System.out.println("[CLIENT JAVA] Prêt à interagir avec le serveur C++");
+
+            // Nettoyage 
+        orn.destroy();
         } catch (Exception e) {
             System.err.println("[ERREUR CLIENT JAVA] : "+ e.getMessage());
             e.printStackTrace();
