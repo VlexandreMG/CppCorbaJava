@@ -26,7 +26,7 @@ public class ClientMain {
         System.out.println("[CLIENT JAVA] Prêt à interagir avec le serveur C++");
 
             // Nettoyage 
-        orn.destroy();
+        orb.destroy();
         } catch (Exception e) {
             System.err.println("[ERREUR CLIENT JAVA] : "+ e.getMessage());
             e.printStackTrace();
