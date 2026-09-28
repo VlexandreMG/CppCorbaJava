@@ -1,0 +1,12 @@
+module LogService {
+    struct Log {
+        long id;
+        string niveau; 
+        string message;
+    };
+
+
+    interface inputLog {
+        boolean register(in Log log);
+    };
+};
