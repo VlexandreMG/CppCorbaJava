@@ -1,7 +1,7 @@
 #pragma once 
 
 #include <iostream>
-#include "LogService.hh"
+#include "../LogService.hh"
 #include "OlonaRepository.hpp"
 
 class LogServiceImpl : public POA_LogService::inputLog {
