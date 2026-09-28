@@ -7,6 +7,6 @@ module LogService {
 
 
     interface inputLog {
-        boolean register(in Log log);
+        boolean register(in Log gog);
     };
 };
